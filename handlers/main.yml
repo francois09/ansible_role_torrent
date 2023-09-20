@@ -1,0 +1,9 @@
+---
+# handlers file for torrent
+- name: Restart transmission-daemon
+  service:
+    name: transmission-daemon
+    state: restarted
+
+- name: Reload transmission-daemon
+  shell: invoke-rc.d transmission-daemon reload

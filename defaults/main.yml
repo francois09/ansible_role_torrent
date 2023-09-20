@@ -1,0 +1,8 @@
+---
+# Default do nothing
+torrent__install: False
+torrent__configure: False
+
+# defaults file for torrent
+torrent__default_packages:
+  - transmission-daemon

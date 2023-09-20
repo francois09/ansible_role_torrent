@@ -1,0 +1,21 @@
+---
+- name: Torrent install packages
+  apt:
+    name: "{{ torrent__default_packages }}"
+    update_cache: yes
+    state: present
+  when: torrent__install
+
+
+# Create config file
+- name: Create global config file
+  template:
+    src: etc_transmission_settings.json
+    dest: /etc/transmission-daemon/settings.json
+    owner: debian-transmission
+    group: debian-transmission
+  when:
+    - torrent__configure
+  notify:
+    - Reload transmission-daemon
+...
